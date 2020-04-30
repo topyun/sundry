@@ -1,0 +1,26 @@
+{% extends 'base/base.html' %}
+
+{#{% from 'common/macro.html' import pagination_show %}#}
+{##}
+{% block title %}编辑文章{% endblock %}
+
+{% block page_content %}
+<div class="container">
+    <div class="row" style="padding:50px 20px;">
+        <div class="col-md-12">
+            <div class="page-header">
+                <h3>编辑文章</h3>
+                <hr>
+            </div>
+            <div>
+                {{ wtf.quick_form(form) }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+{{ pagedown.include_pagedown() }}
+{% endblock %}

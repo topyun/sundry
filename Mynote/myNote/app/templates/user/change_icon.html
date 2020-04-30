@@ -1,0 +1,16 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    修改头像
+{% endblock %}
+
+{% block page_content %}
+    修改头像
+    {{ wtf.quick_form(form) }}
+    <label>头像</label>
+    <img src="{{ url_for('static',filename='uploads/photos/'+current_user.icon) }}"
+    style="width:64px;height: 64px;">
+
+
+
+{% endblock %}

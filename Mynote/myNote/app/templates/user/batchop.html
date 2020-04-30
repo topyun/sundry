@@ -1,0 +1,58 @@
+{% extends 'base/base.html' %}
+
+{% from 'base/macro.html' import pagination_show %}
+
+{% block title %} justNote {% endblock %}
+
+{% block page_content %}
+
+<hr class="m-0">
+
+<section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="experience">
+    <div class="w-100">
+        <h3 class="mb-5">管理</h3>
+
+        <hr class="m-6">
+
+
+        <form action="{{ url_for('user.manage_del_mod') }}" method='POST'>
+
+            {% for post in posts %}
+                    <a class="btn  btn-primary"href="{{ url_for('user.editnote', id=post.id) }}">
+                        编辑
+                </a>
+                    <a class="btn  btn-default" href="{{ url_for('main.post', id=post.id) }}">
+
+                        详情
+
+                </a>
+
+                <input type="checkbox" name="array" value="{{ post.id }}">
+                id：<font color="red"> {{ post.id }} </font>|
+                title：<font color="red"> {{ post.title }} </font> |
+                <a href="{{ url_for('user.delete', id=post.id) }}"
+                   onclick="{if(confirm('确定纪录吗?')){this.document.formname.submit();return true;}return false;}"><span
+                        class="label label-primary"><button class="btn  btn-danger"><i class="fa fa-pencil-square-o"
+                                                       aria-hidden="true"></i>主公三思</button></span></a>
+                </tb>
+                <hr>
+            {% endfor %}
+
+            <input type='submit' onclick="return confirm('你确定要批量删除吗？');" value='批量删除'>
+<div class="justify-content-center ">
+          {{ pagination_show(pagination,'user.manage_del_mod') }}
+          </div>
+        </form>
+</div>
+
+
+</section>
+
+
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+{% endblock %}
+

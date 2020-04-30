@@ -1,0 +1,44 @@
+{% extends 'base/base.html' %}
+
+{% block title %} about {% endblock %}
+
+{% block page_content %}
+<body>
+<div class="container"><!--1170px-->
+    <div class="jumbotron">
+        <h2>所有文章({{ posts_num }})</h2>
+        <p>快速进入</p>
+        <button class="btn btn-default">切换类别</button>
+
+         <p style="padding-left:20px;">
+            <small>
+                <span class="fa fa-paperclip glyphicon glyphicon-calendar " aria-hidden="true"></span>
+{#            <span style="color:#8C8C8C;"> {{ moment(post.timestamp).format('YYYY/MM/DD hh:mm:ss') }}</span>#}
+            </small>
+             {% for category in category %}
+            <a href="{{ url_for('main.category',id=category.id) }}">
+                <span class="label"><i class="fa" aria-hidden="true"></i> {{ category.name }}({{ category.posts.count() }})</span>
+            </a>
+                {% endfor %}
+         </p>
+          <button class="btn btn-default">切换年份</button>
+
+         <p style="padding-left:20px;">
+            <small>
+            <span class="glyphicon glyphicon-calendar" aria-hidden="true">|</span>
+{#            <span style="color:#8C8C8C;"> {{ moment(post.timestamp).format('YYYY/MM/DD hh:mm:ss') }}</span>#}
+            </small>
+
+
+        </p>
+    </div>
+</div>
+
+
+
+{#<script src="vend/jquery/jquery.js"></script>#}
+{#<script src="vendor/bootstrap/js/bootstrap.js"></script>#}
+{#<script src="js/main.js"></script>#}
+</body>
+
+{% endblock %}

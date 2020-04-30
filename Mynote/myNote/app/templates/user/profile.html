@@ -1,0 +1,84 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    个人信息
+{% endblock %}
+
+
+
+{% block page_content %}
+
+
+{#    <div class="five wide computer five wide tablet sixteen wide mobile column">#}
+{#        <div class="form-group">#}
+{#            <label>用户名</label>#}
+{#            <input type=text class="form-control" id="InputUsername" placeholder="Username" disabled="disabled"#}
+{#                   value={{ current_user.username }}>#}
+{#        </div>#}
+{#        <div class="form-group">#}
+{#            <label>邮  箱</label>#}
+{#            <input type=text class="form-control" id="InputEmail" placeholder="Email" disabled="disabled"#}
+{#                   value={{ current_user.email }}>#}
+{#        </div>#}
+{##}
+{#        <label>头  像</label>#}
+{#        <br/>#}
+{#        <img src="{{ url_for('static',filename='upload/'+current_user.icon) }}">#}
+{#    </div>#}
+{##}
+{##}
+{#    <div class="eleven wide computer eleven wide tablet sixteen wide mobile column">#}
+{##}
+{#            <div class="space-index-container">#}
+{##}
+{#            </div>#}
+{#    </div>#}
+
+
+
+    <div class="row">
+
+
+
+
+
+<div class="container"><!--1170px-->
+
+    <div>
+    <div class="col-xs-2 col-md-5">
+{#            <label>头 像</label>#}
+            <br/>
+            <img src="{{ url_for('static',filename='uploads/photos/'+current_user.icon) }}">
+            <br/>
+
+        </div>
+
+            <div class="col-xs-8 col-md-6">
+            <button class="btn btn-default" ><a href={{ url_for('user.change_password') }}>修改密码</a></button>
+            <button class="btn btn-default" ><a >修改头像</a></button>
+                <button class="btn btn-danger" ><a href={{ url_for('user.logout') }}>退出</a></button>
+
+                 <div class="form-group">
+                <label>用户名</label>
+                <input type=text class="form-control" id="InputUsername" placeholder="Username" disabled="disabled"
+                       value={{ current_user.username }}>
+            </div>
+            <div class="form-group">
+                <label>邮 箱</label>
+                <input type=text class="form-control" id="InputEmail" placeholder="Email" disabled="disabled"
+                       value={{ current_user.email }}>
+            </div>
+                </div>
+
+            </div>
+    <div class="jumbotron">
+        <h2>写文章</h2>
+        <p>开源</p>
+        <button class="btn btn-default"><a href={{ url_for('user.note') }}>说些什么</a></button>
+        <button class="btn btn-default"><a href={{ url_for('user.manage_del_mod') }}>管理文章</a></button>
+    </div>
+</div>
+
+
+    </div>
+{% endblock %}

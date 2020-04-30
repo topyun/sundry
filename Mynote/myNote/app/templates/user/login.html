@@ -1,0 +1,33 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    用户登录
+{% endblock %}
+
+ 
+
+{% block page_content %}
+    <hr>
+
+    <div class="container center-block">
+    <div class="row">
+           <div class="col-md-4 "></div>
+          <div class="col-md-auto">
+          {{ wtf.quick_form(form) }}
+              <p><a href="{{ url_for('user.register') }}">注册</a></p>
+      </div>
+        <div class="col-md-4">
+
+        </div>
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+{% endblock %}

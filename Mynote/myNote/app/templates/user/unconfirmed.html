@@ -1,0 +1,37 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    未激活
+{% endblock %}
+
+ 
+
+{% block page_content %}
+    <hr>
+
+    <div class="container center-block">
+        <div class="row">
+            <div class="col-md-4 "></div>
+            <div class="col-md-auto">
+                未激活
+
+                <div class="page-header">
+                    <h>Hello, {{ current_user.username }}</h>
+                    <div>
+                        <h>You have not confirmed your account yet.</h>
+                        Before you can access this site you need to
+                        confirm your account.Check your inbox, you should have received an email with a confirmation
+                        link
+                        <p>Need another confirmathion link? <a href="{{ url_for('user.resend_confirmation') }}">Click
+                            here</a></p>
+
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

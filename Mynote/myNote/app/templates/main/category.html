@@ -1,0 +1,30 @@
+{% extends "base/base.html" %}
+{% from 'base/macro.html' import pagination_show %}
+
+{% block title %}{{ category.name }}{% endblock %}
+
+{% block page_content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h4><i class="fa fa-paperclip" aria-hidden="true"></i> {{ category.name }}({{ category.posts.count() }})</h4><br/>
+                {% include 'main/all_post.html' %}
+
+            <div class="justify-content-center ">
+              {{ pagination_show(pagination,'main.category',id=category.id) }}
+            </div>
+
+
+        </div>
+
+        {#        {% if pagination %}#}
+{#        <div style="float:right">{{ macros.pagination_widget(pagination, '.category',id=category.id) }}</div>#}
+{#        {% endif %}#}
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+{% endblock %}
